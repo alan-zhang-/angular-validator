@@ -317,20 +317,20 @@
         parent = $(element).parent();
         _results = [];
         while (parent.length !== 0) {
-          if (parent.hasClass('form-group')) {
-            parent.addClass('has-error');
-            _ref = parent.find('label');
+          if (parent.hasClass('control-group')) {
+            parent.addClass('error');
+            _ref = parent.find('span');
             for (_i = 0, _len = _ref.length; _i < _len; _i++) {
               label = _ref[_i];
-              if ($(label).hasClass('error')) {
+              if ($(label).hasClass('help-inline')) {
                 $(label).remove();
               }
             }
-            $label = $("<label class='control-label error'>" + errorMessage + "</label>");
+            $label = $("<span class='help-inline'>" + errorMessage + "</span>");
             if (attrs.id) {
               $label.attr('for', attrs.id);
             }
-            if ($(element).parent().hasClass('input-group')) {
+            if ($(element).parent().hasClass('controls')) {
               $(element).parent().parent().append($label);
             } else {
               $(element).parent().append($label);
@@ -357,12 +357,12 @@
         parent = $(element).parent();
         _results = [];
         while (parent.length !== 0) {
-          if (parent.hasClass('has-error')) {
-            parent.removeClass('has-error');
-            _ref = parent.find('label');
+          if (parent.hasClass('error')) {
+            parent.removeClass('error');
+            _ref = parent.find('span');
             for (_i = 0, _len = _ref.length; _i < _len; _i++) {
               label = _ref[_i];
-              if ($(label).hasClass('error')) {
+              if ($(label).hasClass('help-inline')) {
                 $(label).remove();
               }
             }
